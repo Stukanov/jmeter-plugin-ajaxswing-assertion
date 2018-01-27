@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+sourceCompatibility=1.8
+targetCompatibility=1.8
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: '../../../Jmeter_instance/lib')
+    compile fileTree(include: ['*.jar'], dir: '../../../Jmeter_instance/lib/ext')
+}
+
+task copyToJMeter(type: Copy) {
+    from "$buildDir/libs"
+    into '../../../Jmeter_instance/lib/ext'
+    include '**/*.jar'
+}
